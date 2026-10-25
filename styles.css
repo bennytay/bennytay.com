@@ -267,7 +267,7 @@ img {
   color: inherit;
 }
 
-a.item {
+.item.clickable {
   cursor: pointer;
 }
 
@@ -310,6 +310,10 @@ a.item {
 
 .item-title {
   margin: 0;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  column-gap: 8px;
   font-family: var(--serif);
   font-size: 19px;
   line-height: 1.4;
@@ -324,26 +328,25 @@ a.item {
   line-height: 1.65;
 }
 
-.item-links {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 16px;
-  font-size: 14px;
-  letter-spacing: -0.02em;
+.title-link {
+  color: var(--ink);
 }
 
-.item-links a,
+.title-link + .icon-link,
+.item-title > span + .icon-link {
+  margin-left: 2px;
+}
+
 .more {
   color: var(--muted);
   transition: color 150ms ease-out;
 }
 
-.item-links a:hover,
-a.item:hover .more {
+.item.clickable:hover .more {
   color: var(--ink);
 }
 
-a.item:hover .thumb {
+.item.clickable:hover .thumb {
   border-color: #9a9a9a;
 }
 
@@ -443,6 +446,11 @@ a.item:hover .thumb {
   stroke-width: 1.8;
   stroke-linecap: round;
   stroke-linejoin: round;
+}
+
+.icon-link.sm {
+  width: 17px;
+  height: 17px;
 }
 
 .icon-link.small {
